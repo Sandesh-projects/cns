@@ -27,7 +27,7 @@ def generate_playfair_matrix(key):
     return playfair_matrix
 
 def find_position(matrix, char):
-  
+
     for i, row in enumerate(matrix):
         if char in row:
             return i, row.index(char)
@@ -35,13 +35,12 @@ def find_position(matrix, char):
 
 def encrypt_playfair(plaintext, key):
     plaintext = preprocess_text(plaintext)
-    
     playfair_matrix = generate_playfair_matrix(key) 
     ciphertext = []
 
     for i in range(0, len(plaintext), 2):
-        char1 = plaintext[i] # H
-        char2 = plaintext[i + 1] # I
+        char1 = plaintext[i] # s
+        char2 = plaintext[i + 1] # a
         
         row1, col1 = find_position(playfair_matrix, char1)
         row2, col2 = find_position(playfair_matrix, char2)
@@ -88,6 +87,7 @@ def decrypt_playfair(ciphertext, key):
 
 key = "October"
 plaintext = "sandesh"
+print("Plaintext :", plaintext)
 ciphertext = encrypt_playfair(plaintext, key)
 print("Encrypted:", ciphertext)
 
