@@ -14,7 +14,7 @@ def create_hmac(key, message):
     return h.digest()
 
 def main():
-    password = "secure_password"
+    password = "password_to_secure"
     salt = generate_salt()
     hashed_password = hash_password(password, salt)
 
